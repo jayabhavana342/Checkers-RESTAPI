@@ -127,33 +127,32 @@ def result():
                     if checkSouth(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "S"})
                         print("True", i, j)
-                    elif checkNorth(i, j, row, test_data, 4):
+                    if checkNorth(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "N"})
                         print("True", i, j)
-                    elif checkWest(i, j, row, test_data, 4):
+                    if checkWest(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "W"})
                         print("True", i, j)
-                    elif checkEast(i, j, row, test_data, 4):
+                    if checkEast(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "E"})
                         print("True", i, j)
-                    elif checkSouthEast(i, j, row, test_data, 4):
+                    if checkSouthEast(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "SE"})
                         print("True", i, j)
-                    elif checkNorthEast(i, j, row, test_data, 4):
+                    if checkNorthEast(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "NE"})
                         print("True", i, j)
-                    elif checkSouthWest(i, j, row, test_data, 4):
+                    if checkSouthWest(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "SW"})
                         print("True", i, j)
-                    elif checkNorthWest(i, j, row, test_data, 4):
+                    if checkNorthWest(i, j, row, test_data, 4):
                         res.append({"x": i, "y": j, "color": row, "direction": "NW"})
                         print("True", i, j)
-                    else:
-                        print("False", i, j)
+                    print("False", i, j)
                     print("========")
 
     return jsonify(result=res)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
