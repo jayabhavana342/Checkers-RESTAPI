@@ -33,9 +33,9 @@ The service returns a **JSON** array of objects with the locations on the grid w
 Each time a POST request is made, a new task is created.
 
 * **End-points**:
-    * "/":
+    * **"/"**:
         Takes a GET request and returns a message "Hello :D Welcome to the Checkers Direction Identifier!!".
-    * "/results":
+    * **"/results"**:
         Takes a POST request with json data and returns the identified checkers directions json data.
         A GET request to this end-point would return an empty json list.
 
@@ -82,9 +82,10 @@ Create a virtual environment and install the requirements in it:
 ```
 $ virtualenv venv
 $ source venv/bin/activate
-$ pip install -r requirements.txt
+$ pip install -r vagrant/requirements.txt
 
 ```
+![image](https://user-images.githubusercontent.com/26471348/42347072-50895b82-806a-11e8-8080-d573ba9cd434.png)
 
 Run the app:
 ```
