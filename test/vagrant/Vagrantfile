@@ -1,0 +1,79 @@
+OS_COUNT = 3
+
+$script = <<-SCRIPT
+python3.6 /home/vagrant/app/app.py
+SCRIPT
+
+Vagrant.configure("2") do |config|
+      config.vm.define "centos1" do |c1|
+        c1.vm.box = "centos/7"
+        c1.vm.hostname = "centos1"
+        c1.vm.box_url = "centos/7"
+        c1.vm.network "forwarded_port", guest: 5000, host: 5000
+
+        c1.vm.provision "file", source: "./app", destination: "./"
+        c1.vm.provision "ansible_local" do |a|
+          a.playbook = "setup.yml"
+        end
+
+        c1.vm.provision "docker" do |d|
+            d.build_image "/home/vagrant/app"
+            d.run "centos", image: "centos", args: "-p 5000:5000 -v /vagrant:/app"
+        end
+
+        c1.vm.provider "virtualbox" do |vb|
+            vb.gui = true
+            vb.memory = 1024
+        end
+
+        #c1.vm.provision "shell", inline: $script
+      end
+
+      config.vm.define "centos2" do |c2|
+        c2.vm.box = "centos/7"
+        c2.vm.hostname = "centos2"
+        c2.vm.box_url = "centos/7"
+        c2.vm.network "forwarded_port", guest: 5000, host: 5002
+
+        c2.vm.provision "file", source: "./app", destination: "./"
+        c2.vm.provision "ansible_local" do |a|
+          a.playbook = "setup.yml"
+        end
+
+        c2.vm.provision "docker" do |d|
+            d.build_image "/home/vagrant/app"
+            d.run "centos", image: "centos", args: "-p 5000:5002 -v /vagrant:/app"
+        end
+
+        c2.vm.provider "virtualbox" do |vb|
+            vb.gui = true
+            vb.memory = 1024
+        end
+
+         #c2.vm.provision "shell", inline: $script
+      end
+
+      config.vm.define "centos3" do |c3|
+        c3.vm.box = "centos/7"
+        c3.vm.hostname = "centos3"
+        c3.vm.box_url = "centos/7"
+        c3.vm.network "forwarded_port", guest: 5000, host: 5003
+
+        c3.vm.provision "file", source: "./app", destination: "./"
+        c3.vm.provision "ansible_local" do |a|
+          a.playbook = "setup.yml"
+        end
+
+        c3.vm.provision "docker" do |d|
+            d.build_image "/home/vagrant/app"
+            d.run "centos", image: "centos", args: "-p 5000:5003 -v /vagrant:/app"
+        end
+
+        c3.vm.provider "virtualbox" do |vb|
+            vb.gui = true
+            vb.memory = 1024
+        end
+
+         #c3.vm.provision "shell", inline: $script
+      end
+end
