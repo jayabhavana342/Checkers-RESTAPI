@@ -30,14 +30,25 @@ The service returns a **JSON** array of objects with the locations on the grid w
 
 ```
 
+Each time a POST request is made, a new task is created.
+
+**End-points**:
+    "/":
+        Takes a GET request and returns a message "Hello :D Welcome to the Checkers Direction Identifier!!".
+    "/results":
+        Takes a POST request with json data and returns the identified checkers directions json data.
+        A GET request to this end-point would return an empty json list.
+
+
+
 ## Getting Started
 
-clone the git repository from https://github.com/jayabhavana342/Checkers-RESTAPI.git
+Clone the git repository from https://github.com/jayabhavana342/Checkers-RESTAPI.git
 
 ```
-git clone https://github.com/jayabhavana342/Checkers-RESTAPI.git
-cd test
-cd vagrant
+$ git clone https://github.com/jayabhavana342/Checkers-RESTAPI.git
+$ cd production
+$ cd vagrant
 
 ```
 
@@ -46,28 +57,26 @@ cd vagrant
 Before running the application these software's needs to be installed:
 
 ```
-**Git**:
+Git:
     sudo apt-get install git
-**VirtualBox:**
+VirtualBox:
     sudo apt-get install virtualbox
-**Vagrant:**
+Vagrant:
     sudo apt-get install vagrant
-**Docker:**
+Docker:
     sudo apt-get install docker.io
-**Python:**
+Python:
     sudo apt-get install python3.6
-**Virtualenv:**
+Virtualenv:
     sudo apt-get install virtualenv
-**Pip:**
+Pip:
     sudo apt-get install python-pip
 
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running:
-
-#### Running on local computer (inside test folder)
+#### Running on local computer (inside production folder)
 
 Create a virtual environment and install the requirements in it:
 ```
@@ -136,23 +145,23 @@ The applications ports are forwarded to local ports as below:
 | VM           | Guest Port    | Host Port   |
 | ------------ |:-------------:| -----------:|
 | centos1      | 5000          | 5000        |
-| centos2      | 5000          | 5002        |
+| centos2      | 5000          | 5003        |
 | centos3      | 5000          | 5003        |
 
-To have a post request to the REST API on these virtual machines:
+Run the below comands to have a post request to the REST API endpoint "/results" on these virtual machines:
 
-CentOS1:
+CentOS1 (http://0.0.0.0:5000):
 ```
 curl -X POST -H "Content-type: application/json" -d '[["R","R","B","-","B","B","B","-"],["B","R","B","B","B","B","-","-"],["B","R","B","B","R","R","-","B"],["R","R","R","-","-","R","R","R"],["B","B","B","R","-","-","-","B"],["-","R","B","B","B","B","-","B"],["R","B","-","B","R","B","-","R"],["B","R","-","R","B","-","-","-"]] http://0.0.0.0:5000/results
 
 ```
-CentOS2:
-```
-curl -X POST -H "Content-type: application/json" -d '[["R","R","B","-","B","B","B","-"],["B","R","B","B","B","B","-","-"],["B","R","B","B","R","R","-","B"],["R","R","R","-","-","R","R","R"],["B","B","B","R","-","-","-","B"],["-","R","B","B","B","B","-","B"],["R","B","-","B","R","B","-","R"],["B","R","-","R","B","-","-","-"]] http://0.0.0.0:5001/results
-
-```
-CentOS3:
+CentOS2 (http://0.0.0.0:5002):
 ```
 curl -X POST -H "Content-type: application/json" -d '[["R","R","B","-","B","B","B","-"],["B","R","B","B","B","B","-","-"],["B","R","B","B","R","R","-","B"],["R","R","R","-","-","R","R","R"],["B","B","B","R","-","-","-","B"],["-","R","B","B","B","B","-","B"],["R","B","-","B","R","B","-","R"],["B","R","-","R","B","-","-","-"]] http://0.0.0.0:5002/results
+
+```
+CentOS3 (http://0.0.0.0:5003):
+```
+curl -X POST -H "Content-type: application/json" -d '[["R","R","B","-","B","B","B","-"],["B","R","B","B","B","B","-","-"],["B","R","B","B","R","R","-","B"],["R","R","R","-","-","R","R","R"],["B","B","B","R","-","-","-","B"],["-","R","B","B","B","B","-","B"],["R","B","-","B","R","B","-","R"],["B","R","-","R","B","-","-","-"]] http://0.0.0.0:5003/results
 
 ```
