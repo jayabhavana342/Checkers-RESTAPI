@@ -89,7 +89,7 @@ $ pip install -r vagrant/requirements.txt
 
 Run the app:
 ```
-$ cd app
+$ cd vagrant/app
 $ python app.py
 
 ```
@@ -118,9 +118,13 @@ To install application on Centos 7 Virtual Machines:
 $ vagrant up --provision
 
 ```
+![image](https://user-images.githubusercontent.com/26471348/42347457-954e104a-806b-11e8-8b38-600cc0902575.png)
 
-The vagrant installs three CentOS 7 and software's from requirements.txt USING **Ansible** and **Docker**.
+
+The vagrant installs three CentOS 7 and software's from requirements.txt USING **Ansible** and **Docker** under folder /production/vagrant/.vagrant.
 Once the virtual machines are initialized, Login to the ssh to access Virtual Machines one at a time:
+Username: vagrant
+Password: vagrant
 
 ```
 $ vagrant ssh "centos1"
@@ -128,7 +132,9 @@ $ vagrant ssh "centos1"
 [vagrant@centos1 ~]$ python3.6 app.py
 
 ```
+![image](https://user-images.githubusercontent.com/26471348/42347840-c0e867e0-806c-11e8-92be-e54321f17337.png)
 
+Similarly for other two VM's:
 ```
 $ vagrant ssh "centos2"
 [vagrant@centos1 ~]$ cd app
@@ -169,3 +175,6 @@ CentOS3 (http://0.0.0.0:5003):
 curl -X POST -H "Content-type: application/json" -d '[["R","R","B","-","B","B","B","-"],["B","R","B","B","B","B","-","-"],["B","R","B","B","R","R","-","B"],["R","R","R","-","-","R","R","R"],["B","B","B","R","-","-","-","B"],["-","R","B","B","B","B","-","B"],["R","B","-","B","R","B","-","R"],["B","R","-","R","B","-","-","-"]] http://0.0.0.0:5003/results
 
 ```
+Requesting through HTTP client:
+
+![image](https://user-images.githubusercontent.com/26471348/42347901-fc672be4-806c-11e8-86ff-c170a106cf79.png)
