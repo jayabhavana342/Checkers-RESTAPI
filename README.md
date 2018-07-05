@@ -32,10 +32,10 @@ The service returns a **JSON** array of objects with the locations on the grid w
 
 Each time a POST request is made, a new task is created.
 
-**End-points**:
-    "/":
+* **End-points**:
+    * "/":
         Takes a GET request and returns a message "Hello :D Welcome to the Checkers Direction Identifier!!".
-    "/results":
+    * "/results":
         Takes a POST request with json data and returns the identified checkers directions json data.
         A GET request to this end-point would return an empty json list.
 
