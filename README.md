@@ -92,10 +92,6 @@ $ curl -X POST -H "Content-Type:application/json" -d '[["R","R","B","-","B","B",
 
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-curl -X POST -H "Content-type: application/json" -d '[["R","R","B","-","B","B","B","-"],["B","R","B","B","B","B","-","-"],["B","R","B","B","R","R","-","B"],["R","R","R","-","-","R","R","R"],["B","B","B","R","-","-","-","B"],["-","R","B","B","B","B","-","B"],["R","B","-","B","R","B","-","R"],["B","R","-","R","B","-","-","-"]] localhost:5000/results
-
 #### Running on Virtual Machines (inside vagrant folder)
 
 Open virtualbox from terminal:
