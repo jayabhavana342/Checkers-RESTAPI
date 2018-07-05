@@ -93,7 +93,10 @@ $ cd app
 $ python app.py
 
 ```
-The application will start running on http://127.0.0.1:5000/
+The application will start running on http://0.0.0.0:5000/
+
+![image](https://user-images.githubusercontent.com/26471348/42347192-b9914d10-806a-11e8-8c31-4eb9707c49b8.png)
+
 
 
 Run the below command to check the output:
